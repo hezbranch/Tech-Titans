@@ -121,7 +121,8 @@ class ChatViewController: JSQMessagesViewController
         present(alert, animated: true, completion: nil)
     }
     
-    // Returns the message by its specific index starting from 0
+    /** Returns the message by its specific index starting from 0
+    */
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData!
     {
         return messages[indexPath.item]
@@ -172,6 +173,13 @@ class ChatViewController: JSQMessagesViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
